@@ -1,7 +1,6 @@
 <?php
 	get_header();
 ?>
-
 <main class="p-service">
 	<div class="l-container">
 		<div class="c-title c-title--page">

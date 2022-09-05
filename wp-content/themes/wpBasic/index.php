@@ -23,36 +23,49 @@
 		<div class="p-topics">
 			<h2 class="c-title">Topics</h2>
 			<ul class="c-listpost">
+			<!-- get the first post -->
+			<?php 
+				$args = array(
+					'post_status' => 'publish', // Chỉ lấy những bài viết được publish
+					'post_type' => 'post', // Lấy những bài viết thuộc post, nếu lấy những bài trong 'trang' thì để là page 
+					'showposts' => 1, // số lượng bài viết
+					'cat' => 9, // lấy bài viết trong chuyên mục có id là 1
+				);
+			?>
+			<?php $getposts = new WP_query($args); ?>
+			<?php global $wp_query; $wp_query->in_the_loop = true; ?>
+			<?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
 				<li>
-					<span class="datepost">2018/08/24</span>
-					<a href="cat.html" class="c-label">特集記事</a>
-					<a href="cat.html" class="c-label">デイリーニュース</a>
-					<a href="post.html">新しい権利　配偶者終身居住権</a>
+					<span class="datepost"><?php echo get_the_date('Y/m/d'); ?></span>
+					<a href="<?php bloginfo('url'); ?>/cat" class="c-label"><?php the_title(); ?></a>
+					<a href="<?php bloginfo('url'); ?>/cat" class="c-label">デイリーニュース</a>
+					<a href="<?php the_permalink(); ?>"><?php the_excerpt();?></a>
 				</li>
+			<?php endwhile; wp_reset_postdata(); ?>
+
+			<!-- take the remaining posts and remove the first one -->
+			<?php 
+				$args = array(
+					'post_status' => 'publish', // Chỉ lấy những bài viết được publish
+					'post_type' => 'post', // Lấy những bài viết thuộc post, nếu lấy những bài trong 'trang' thì để là page 
+					'showposts' => 4, // số lượng bài viết
+					'cat' => 9, // lấy bài viết trong chuyên mục có id là 1
+					'offset' => 1, //bỏ đi bài viết đầu tiên
+				);
+			?>
+			<?php $getposts = new WP_query($args); ?>
+			<?php global $wp_query; $wp_query->in_the_loop = true; ?>
+			<?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
 				<li>
-					<span class="datepost">2018/08/22</span>
-					<a href="cat.html" class="c-label">デイリーニュース</a>
-					<a href="post.html">介護保険の被保険者</a>
+					<span class="datepost"><?php echo get_the_date('Y/m/d'); ?></span>
+					<a href="<?php bloginfo('url'); ?>/cat" class="c-label"><?php the_title(); ?></a>
+					<a href="<?php the_permalink() ?>"><?php the_excerpt(); ?></a>
 				</li>
-				<li>
-					<span class="datepost">2018/08/21</span>
-					<a href="cat.html" class="c-label">デイリーニュース</a>
-					<a href="post.html">自然災害と中小企業支援策</a>
-				</li>	
-				<li>
-					<span class="datepost">2018/08/20</span>
-					<a href="cat.html" class="c-label">特集記事</a>
-					<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-				</li>
-				<li>
-					<span class="datepost">2018/08/20</span>
-					<a href="cat.html" class="c-label">事務所ニュース</a>
-					<a href="post.html">働き方改革”と管理者</a>
-				</li>
+			<?php endwhile; wp_reset_postdata(); ?>
 			</ul>
 
 			<div class="l-btn">
-				<a href="topics.html" class="c-btn c-btn--small">一覧を見る</a>
+				<a href="<?php bloginfo('url') ?>/topics" class="c-btn c-btn--small">一覧を見る</a>
 			</div>
 		</div>
 

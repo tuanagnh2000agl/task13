@@ -1,7 +1,7 @@
 <footer class="c-footer">
 	<div class="c-footer__logo">
 		<div class="l-container">
-			<a href="index.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="税理士法人下平会計事務所"></a>
+			<a href="<?php bloginfo('url');?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="税理士法人下平会計事務所"></a>
 		</div>
 	</div>
 
@@ -14,7 +14,7 @@
 				<li><a href="#">6つの強み</a></li>
 				<li><a href="#">サービス</a></li>
 				<li><a href="#">所員紹介</a></li>
-				<li><a href="topics.html">Topics</a></li>
+				<li><a href="<?php echo get_home_url() ?>/topics">Topics</a></li>
 				<li><a href="#">お問合せ</a></li>
 				<li><a href="#">個人情報保護方針</a></li>
 			</ul>

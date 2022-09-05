@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-	<meta charset="utf-8">
-	<title>Post | Tranning Wordpress</title>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-</head>
-<body>
-<header class="c-header">
-	<div class="l-container">
-		<div class="c-header__top">
-			<div class="logo">
-				<a href="index.html"><img src="img/logo.png" alt="税理士法人下平会計事務所"></a>
-			</div>
-			<div class="contact">
-				<img src="img/hed_tel.png" alt=""><br/>
-				<img src="img/hed_con_no.png" alt="" class="imglink">
-
-			</div>
-		</div>
-
-		<nav class="c-gnav">
-			<ul>
-				<li><a href="#">私たちの想い</a></li>
-				<li><a href="#">6つの強み</a></li>
-				<li><a href="service.html">サービス</a></li>
-				<li><a href="#">所員の紹介</a></li>
-				<li><a href="#">事務所案内</a></li>
-			</ul>
-		</nav>
-	</div>
-</header>
+<?php 
+	get_header();
+?>
 
 <main class="p-single">
 	<div class="c-title c-title--page">
@@ -111,35 +77,7 @@
 	</div>
 </main>
 
-<footer class="c-footer">
-	<div class="c-footer__logo">
-		<div class="l-container">
-			<a href="index.html"><img src="img/logo.png" alt="税理士法人下平会計事務所"></a>
-		</div>
-	</div>
-
-	<div class="c-footer__link">
-		<div class="l-container">
-			<ul>
-				<li><a href="#">トップページ</a></li>
-				<li><a href="#">事務所案内</a></li>
-				<li><a href="#">私たちの想い</a></li>
-				<li><a href="#">6つの強み</a></li>
-				<li><a href="#">サービス</a></li>
-				<li><a href="#">所員紹介</a></li>
-				<li><a href="topics.html">Topics</a></li>
-				<li><a href="#">お問合せ</a></li>
-				<li><a href="#">個人情報保護方針</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="c-copyright">
-		<div class="l-container">
-			<p>Copyright 2015 Shimodaira Tax Accounting Office All Right Reserved.</p>
-		</div>
-	</div>
-</footer>
-<script src="js/common.js"></script>
-</body>
-</html>
+<?php
+	get_footer();
+	wp_footer();
+?>

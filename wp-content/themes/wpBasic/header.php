@@ -15,7 +15,7 @@
 	<div class="l-container">
 		<div class="c-header__top">
 			<div class="logo">
-				<a href="index.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="税理士法人下平会計事務所"></a>
+				<a href="<?php bloginfo('url');?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/logo.png" alt="税理士法人下平会計事務所"></a>
 			</div>
 			<div class="contact">
 				<img src="<?php bloginfo('stylesheet_directory'); ?>/img/hed_tel.png" alt=""><br/>
@@ -23,7 +23,6 @@
 
 			</div>
 		</div>
-
 		<nav class="c-gnav">
 			<?php wp_nav_menu( 
 				array( 
