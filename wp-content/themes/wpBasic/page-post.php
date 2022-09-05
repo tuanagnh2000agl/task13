@@ -48,7 +48,7 @@
 			</div>
 
 			<div class="p-single__content">
-				<img src="img/dummyimg.png" alt="">
+				<img src="<?php bloginfo('stylesheet_directory') ?>/img/dummyimg.png" alt="">
 				<h3>新しい法定された権利の創設</h3>
 				<p>民法が改正され、配偶者終身居住権が創設されました。被相続人の配偶者が自宅に住み続けることができる権利で、高齢化が進む中、残された配偶者の住居や生活費を確保し易くする、というのが狙いです。</p>
 				<p>子が自宅の所有権を相続し、被相続人の配偶者が終身居住権を相続する、というのが最も典型的な予想ケースとされています。</p>
