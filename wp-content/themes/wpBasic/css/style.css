@@ -268,7 +268,7 @@ body {
   text-align: center;
 }
 
-.c-pnav a {
+.c-pnav .page-numbers {
   display: inline-block;
   line-height: 30px;
   width: 30px;
@@ -287,7 +287,7 @@ body {
   font-family: "fontAwesome";
 }
 
-.c-pnav a:hover, .c-pnav a.current {
+.c-pnav a:hover, .c-pnav .current {
   background-color: #90c132;
   border: 1px solid #90c132;
   color: #fff;

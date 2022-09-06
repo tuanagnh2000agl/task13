@@ -59,47 +59,27 @@
 			<a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/btn_03_no.png" alt="Image btn03" class="js-imglink"></a>
 			<a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/btn_04_no.png" alt="Image btn04" class="js-imglink"></a>
 		</div>
-
-		<!-- <div class="c-access"> -->
-			<!-- <div class="c-access">
-				<div class="c-access__info">
-					<h3 class="c-title c-title--sub">本店</h3>
-					<p class="address">〒210-0005　川崎市川崎区東田町8 パレール三井ビル8階</p>
-					<p class="time">JR川崎駅東口より徒歩7分　京急川崎駅より徒歩5分</p>
-					<br/>
-					<p>
-						<span class="tel">tel : 044-233-2811</span>
-						<span class="fax">fax : 044-233-0818</span>
-						<br/>
-						<span class="email">mail : info@wms.or.jp</span>
-					</p>
-				</div>
-				<div class="c-access__img">
-					<img src="<?php bloginfo('stylesheet_directory'); ?>/img/map_01.png" alt="Image map 01">
-				</div>
-			</div> -->
-            <?php if( have_rows('map') ): while( have_rows('map') ): the_row(); 
-                    ?>
-                     <div class="c-access">
-                        <div class="c-access__info">
-                            <h3 class="c-title c-title--sub"><?php the_sub_field('title'); ?></h3>
-                            <p class="address"><?php the_sub_field('address'); ?></p>
-                            <p class="time"><?php the_sub_field('time'); ?></p>
+        <!-- custom field -->
+        <?php if( have_rows('map') ): while( have_rows('map') ): the_row(); 
+                ?>
+                    <div class="c-access">
+                    <div class="c-access__info">
+                        <h3 class="c-title c-title--sub"><?php the_sub_field('title'); ?></h3>
+                        <p class="address"><?php the_sub_field('address'); ?></p>
+                        <p class="time"><?php the_sub_field('time'); ?></p>
+                        <br/>
+                        <p>
+                            <span class="tel"><?php the_sub_field('tel'); ?></span>
+                            <span class="fax"><?php the_sub_field('fax'); ?></span>
                             <br/>
-                            <p>
-                                <span class="tel"><?php the_sub_field('tel'); ?></span>
-                                <span class="fax"><?php the_sub_field('fax'); ?></span>
-                                <br/>
-                                <span class="email"><?php the_sub_field('email'); ?></span>
-                            </p>
-                        </div>
-                        <div class="c-access__img">
-                            <img src="<?php the_sub_field('image'); ?>">
-                        </div>
+                            <span class="email"><?php the_sub_field('email'); ?></span>
+                        </p>
                     </div>
-            <?php endwhile; endif; ?>
-			
-		<!-- </div> -->
+                    <div class="c-access__img">
+                        <img src="<?php the_sub_field('image'); ?>">
+                    </div>
+                </div>
+        <?php endwhile; endif; ?>
 	</div>
 </main>
 <?php

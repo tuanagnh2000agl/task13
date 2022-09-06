@@ -10,11 +10,12 @@
 		<ul class="c-listpost">
 
 			<?php
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				$topic = new WP_Query(array(
-					'post_type' => 'test',
-					'posts_per_page'  => 10,
+					'post_type' => 'post',
+					'posts_per_page'  => 5,
 					'order' => 'DESC',
-					'orderby' => 'id',
+                    'paged' => $paged
 				))
 
 			?>
@@ -22,21 +23,21 @@
 				if($topic->have_posts()) : while($topic->have_posts()): $topic->the_post();
 			?>
 			<li>
-				<span class="datepost"><?= get_the_date('Y/d/m') ?></span>
-				<a href="<?php bloginfo('url') ?>/cat" class="c-label"><?php the_title() ?></a>
-				<a href="<?php bloginfo('url') ?>/post"><?php the_content() ?></a>
+				<span class="datepost"><?= get_the_date('Y/m/d') ?></span>
+				<?php
+					$cats = get_the_category(get_the_ID());
+					foreach ($cats as $cat) {
+				?>
+					<a href="<?= get_category_link($cat->cat_ID) ?>" class="c-label"><?= $cat->name ?></a>
+				<?php } ?>
+				<a href="<?= get_the_permalink() ?>"><?= get_the_title(); ?></a>
 			</li>
 			
-			<?php  posts_nav_link();  endwhile; endif; wp_reset_query();?>	
+			<?php  endwhile; endif; wp_reset_query();?>	
 		</ul>
 
 		<div class="c-pnav">
-			<a href="" class="prev"></a>
-			<a href="" class="current">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
-			<a href="">4</a>
-			<a href="" class="next"></a>
+			<?php pagination_bar($topic);?>
 		</div>
 	</div>
 </main>

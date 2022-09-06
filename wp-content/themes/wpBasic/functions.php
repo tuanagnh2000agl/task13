@@ -30,3 +30,26 @@
             ));
         }
     add_action( 'init', 'create_posttype' );
+
+
+
+    // 
+
+
+    function pagination_bar($custom_query = null, $paged = null) {
+        global $wp_query;
+        if($custom_query) $main_query = $custom_query;
+        else $main_query = $wp_query;
+        $big = 999999999;
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $total = isset($main_query->max_num_pages)?$main_query->max_num_pages:'';
+        echo paginate_links( array(
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format' => '?paged=%#%',
+            'prev_text'    => ' ',
+            'next_text'    => ' ',
+            'current' => max( 1, $paged),
+            'prev_next'    => True,
+            'total' => $total
+        ) );
+    }
