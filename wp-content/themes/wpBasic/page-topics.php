@@ -8,69 +8,26 @@
 	</div>
 	<div class="l-container">
 		<ul class="c-listpost">
-		<?php 
-				$args = array(
-					'post_status' => 'publish', // Chỉ lấy những bài viết được publish
-					'post_type' => 'post', // Lấy những bài viết thuộc post, nếu lấy những bài trong 'trang' thì để là page 
-					'showposts' => 1, // số lượng bài viết
-					'cat' => 10, // lấy bài viết trong chuyên mục có id là 1
-					);
+
+			<?php
+				$topic = new WP_Query(array(
+					'post_type' => 'test',
+					'posts_per_page'  => 10,
+					'order' => 'DESC',
+					'orderby' => 'id',
+				))
+
 			?>
-			<?php $getposts = new WP_query($args); ?>
-			<?php global $wp_query; $wp_query->in_the_loop = true; ?>
-			<?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
-				<li>
-					<span class="datepost"><?= get_the_date('Y/m/d') ?></span>
-					<a href="<?php bloginfo('url') ?>/cat" class="c-label"><?php the_title(); ?></a>
-					<a href="<?php bloginfo('url') ?>/cat" class="c-label">デイリーニュース</a>
-					<a href="<?php bloginfo('url') ?>/topics"><?php the_content(); ?></a>
-				</li>
-			<?php endwhile; wp_reset_postdata(); ?>
+			<?php  
+				if($topic->have_posts()) : while($topic->have_posts()): $topic->the_post();
+			?>
 			<li>
-				<span class="datepost">2018/08/22</span>
-				<a href="cat.html" class="c-label">デイリーニュース</a>
-				<a href="post.html">介護保険の被保険者</a>
+				<span class="datepost"><?= get_the_date('Y/d/m') ?></span>
+				<a href="<?php bloginfo('url') ?>/cat" class="c-label"><?php the_title() ?></a>
+				<a href="<?php bloginfo('url') ?>/post"><?php the_content() ?></a>
 			</li>
-			<li>
-				<span class="datepost">2018/08/21</span>
-				<a href="cat.html" class="c-label">デイリーニュース</a>
-				<a href="post.html">自然災害と中小企業支援策</a>
-			</li>	
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">事務所ニュース</a>
-				<a href="post.html">働き方改革”と管理者</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
-			<li>
-				<span class="datepost">2018/08/20</span>
-				<a href="cat.html" class="c-label">特集記事</a>
-				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li>
+			
+			<?php  posts_nav_link();  endwhile; endif; wp_reset_query();?>	
 		</ul>
 
 		<div class="c-pnav">
