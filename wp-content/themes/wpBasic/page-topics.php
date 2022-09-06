@@ -23,10 +23,10 @@
 					<span class="datepost"><?= get_the_date('Y/m/d') ?></span>
 					<a href="<?php bloginfo('url') ?>/cat" class="c-label"><?php the_title(); ?></a>
 					<a href="<?php bloginfo('url') ?>/cat" class="c-label">デイリーニュース</a>
-					<a href=""><?php the_excerpt(); ?></a>
+					<a href="<?php bloginfo('url') ?>/topics"><?php the_content(); ?></a>
 				</li>
 			<?php endwhile; wp_reset_postdata(); ?>
-			<!-- <li>
+			<li>
 				<span class="datepost">2018/08/22</span>
 				<a href="cat.html" class="c-label">デイリーニュース</a>
 				<a href="post.html">介護保険の被保険者</a>
@@ -70,7 +70,7 @@
 				<span class="datepost">2018/08/20</span>
 				<a href="cat.html" class="c-label">特集記事</a>
 				<a href="post.html">国税庁レポートから読み解く2018年度の重点事項</a>
-			</li> -->
+			</li>
 		</ul>
 
 		<div class="c-pnav">

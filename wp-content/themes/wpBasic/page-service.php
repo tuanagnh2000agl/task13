@@ -17,45 +17,27 @@
 		</div>
 		
 		<div class="p-service__content">
-			<div class="c-service">
-				<h2 class="c-service__title"><span class="c-label c-label--white">Smile Service 1</span></h2>
-				<p>自社の経理事務に時間とコストをかけすぎているとお感じなら、<br/>
-				経理業務をアウトソーシングしてコストを抑えませんか。<br/>
-				日々の記帳代行や給与計算から試算表や決算書の作成まで、<br/>
-				税務・会計のプロである私たちがトータルでサポートいたします。</p>
-			</div>
-
-			<div class="c-service">
-				<h2 class="c-service__title"><span class="c-label c-label--white">Smile Service 2</span></h2>
-				<p>経営を強化する近道は、数字に強くなること。<br/>
-				成長する会社、永続する会社になるために、決算書をもとに<br/>
-				現状を正確に把握しましょう。そのうえでリスクを予測し、自社の強みを<br/>
-				生かせる戦略アイデアを出して、利益の確保をいっしょに考えます。</p>
-			</div>
-
-			<div class="c-service">
-				<h2 class="c-service__title"><span class="c-label c-label--white">Smile Service 3</span></h2>
-				<p>人の活性化・定着化にお悩みの場合も、私たちにご相談ください。<br/>
-				人事労務の視点と、税務会計の視点とを組み合わせ、<br/>
-				人材や社内体制などの問題を解決。<br/>
-				組織改善や企業文化づくりをサポートしていきます。</p>
-			</div>
-
-			<div class="c-service">
-				<h2 class="c-service__title"><span class="c-label c-label--white">Smile Service 4</span></h2>
-				<p>専門家とのネットワークを駆使して相続や贈与を<br/>
-				スムーズにするお手伝いをします。大きな課税対象となる不動産は、<br/>
-				評価額によって納税額に大きな差が出るもの。相続税・贈与税申告の実績が<br/>
-				豊富な私たちなら、お客様の不安を安心に変えていきます。</p>
-			</div>
-
-			<div class="c-service">
-				<h2 class="c-service__title"><span class="c-label c-label--white">Smile Service 5</span></h2>
-				<p>専門家とのネットワークを駆使して相続や贈与を<br/>
-				スムーズにするお手伝いをします。大きな課税対象となる不動産は、<br/>
-				評価額によって納税額に大きな差が出るもの。相続税・贈与税申告の実績が<br/>
-				豊富な私たちなら、お客様の不安を安心に変えていきます。</p>
-			</div>
+		<?php 
+				$args = array(
+					'post_status' => 'publish', // Chỉ lấy những bài viết được publish
+					'post_type'   => 'post',
+					'order'       => 'ASC', // Lấy những bài viết thuộc post, nếu lấy những bài trong 'trang' thì để là page 
+					'showposts'   => 5, // số lượng bài viết
+					'cat' => 11, // lấy bài viết trong chuyên mục có id là 1
+				
+				);
+			?>
+			<?php $getposts = new WP_query($args); ?>
+			<?php global $wp_query; $wp_query->in_the_loop = true; ?>
+			<?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
+				<div class="c-service">
+					<h2 class="c-service__title"><span class="c-label c-label--white"><?php the_title(); ?></span></h2>
+					<p>
+						<?php the_content(); ?>
+					</p>
+					
+				</div>
+			<?php endwhile; wp_reset_postdata(); ?>
 		</div>
 	</div>
 </main>
