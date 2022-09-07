@@ -2,7 +2,29 @@
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>Home | Tranning Wordpress</title>
+	<title>
+		<?php if (is_home() || is_front_page()) : ?>
+            Home | Training wordpress
+        <?php endif; ?>
+        <?php if (is_page('services')) : ?>
+            サービス | Training wordpress
+        <?php endif; ?>
+		<?php if (is_date()) : ?>
+            Date | Training wordpress
+        <?php endif; ?>
+        <?php if (is_page('topics')) : ?>
+            Topics | Training wordpress
+        <?php endif; ?>
+		<?php if (is_404()) : ?>
+            404 | Training wordpress
+        <?php endif; ?>
+		<?php if (is_search()) : ?>
+            Search | Training wordpress
+        <?php endif; ?>
+		<?php if (is_single('')) : ?>
+            Post | Training wordpress
+        <?php endif; ?>
+	</title>
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/404.css">

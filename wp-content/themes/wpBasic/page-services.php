@@ -17,23 +17,15 @@
 		</div>
 		
 		<div class="p-service__content">
-		<?php 
-			$args = array(
-				'post_status' => 'publish', 
-				'post_type'   => 'services',
-				'order'       => "ASC",
-				'showposts'   => 5, 
-			);
-			?>
-			<?php $getposts = new WP_query($args); ?>
-			<?php global $wp_query; $wp_query->in_the_loop = true; ?>
-			<?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
-				<div class="c-service">
-					<h2 class="c-service__title"><span class="c-label c-label--white"><?php the_title(); ?></span></h2>
-					<p><?= the_content() ?></p>
-				</div>
-			<?php endwhile; wp_reset_postdata(); ?>
-		</div>
+		    <?php if( have_rows('services') ): while( have_rows('services') ): the_row(); ?>
+                <div class="c-service">
+                    <h2 class="c-service__title"><span class="c-label c-label--white"><?php the_sub_field('title'); ?></span></h2>
+                    <p>
+                    <?php the_sub_field('desc'); ?>
+                    </p>
+                </div>
+            <?php endwhile; endif; ?>
+        </div>
 	</div>
 </main>
 
