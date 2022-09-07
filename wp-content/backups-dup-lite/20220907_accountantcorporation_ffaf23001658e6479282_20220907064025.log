@@ -1,0 +1,72 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: September 7, 2022 6:40 am
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.5.0
+WORDPRESS:	6.0.2
+PHP INFO:	7.4.29 | SAPI: apache2handler
+SERVER:		Apache/2.4.53 (Win64) OpenSSL/1.1.1n PHP/7.4.29 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (512M default) 
+MEMORY STACK: 6MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   MYSQLDUMP
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Is Supported
+SQL CREATED: 20220907_accountantcorporation_ffaf23001658e6479282_20220907064025_database.sql
+SQL FILE SIZE: 1.5MB (1575021)
+SQL FILE TIME: 2022-09-07 06:40:53
+SQL RUNTIME: 1.72 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  C:/xampp/htdocs/task13
+ARCHIVE FILE: 20220907_accountantcorporation_ffaf23001658e6479282_20220907064025_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	85.24MB
+STATS:	Dirs 743 | Files 6,770
+SQL ADDED: 20220907_accountantcorporation_ffaf23001658e6479282_20220907064025_database.sql
+ZipArchive Object
+(
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 7513
+    [filename] => C:\xampp\htdocs\task13\wp-content\backups-dup-lite\tmp\20220907_accountantcorporation_ffaf23001658e6479282_20220907064025_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 7512
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 41.83MB
+ARCHIVE RUNTIME: 22.25 sec.
+MEMORY STACK: 8MB
+building installer
+ARCHIVE CONSISTENCY TEST: PASS
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 1.5MB
+INSTALLER FILE: 73.37KB
+ARCHIVE FILE: 43.8MB 
+EXPECTED FILE/DIRECTORY COUNT: 7,513
+ACTUAL FILE/DIRECTORY COUNT: 7,512
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[1]
+TOTAL PROCESS RUNTIME: 28.82 sec.
+PEAK PHP MEMORY USED: 10MB
+DONE PROCESSING => 20220907_accountantcorporation September 7, 2022 6:41 am
+

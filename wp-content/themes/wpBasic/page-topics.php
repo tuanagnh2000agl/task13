@@ -43,5 +43,4 @@
 </main>
 <?php
 	wp_footer();
-	get_footer();
 ?>

@@ -4,12 +4,16 @@
 ?>
 <div class="c-mainvisual">
 	<div class="l-container">
-		<div class="c-mainvisual__inner js-slider">
-			<a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/main_img01_no.png" alt="Image main img01"></a>
-			<a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/main_img02_no.png" alt="Image main img02"></a>
-			<a href="service.html"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/main_img03_no.png" alt="Image main img03"></a>
-			<a href="#"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/main_img04_no.png" alt="Image main img04"></a>
-		</div>
+	<div class="c-mainvisual__inner js-slider">
+        <?php $slider = get_field('slider') ?>
+        <?php if ($slider): ?>
+            <?php foreach ($slider as $imageItem): ?>
+            <a href="#">
+                <img src="<?= $imageItem['slider_img']['url'] ?>" alt="<?= $imageItem['slider_img']['alt'] ?>">
+            </a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
 	</div>
 </div>
 <main>
@@ -84,6 +88,5 @@
 </main>
 <?php
 	get_footer();
-	wp_footer();
 ?>
 
